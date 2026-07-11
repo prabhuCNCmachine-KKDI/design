@@ -202,13 +202,56 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowLeft') showLightboxAt(lightboxIndex - 1);
 });
 
-// ── CONTACT FORM
+// ── CONTACT FORM ──
+// Static sites can't run a server-side "send email" action on their own, so this
+// builds a WhatsApp message from the form fields and automatically opens a chat
+// to your business number with everything pre-filled — the visitor just has to
+// tap "Send" inside WhatsApp. Change WHATSAPP_NUMBER below if the number changes.
+const WHATSAPP_NUMBER = '919965988885';
+
 function handleSubmit(){
+  const name = document.getElementById('orderName').value.trim();
+  const phone = document.getElementById('orderPhone').value.trim();
+  const email = document.getElementById('orderEmail').value.trim();
+  const service = document.getElementById('orderService').value;
+  const message = document.getElementById('orderMessage').value.trim();
   const btn = event.target;
-  btn.textContent = '✓ ஆர்டர் அனுப்பப்பட்டது!';
-  btn.style.background = 'linear-gradient(135deg,#2ed573,#1a9e4a)';
-  setTimeout(()=>{
-    btn.textContent = 'ஆர்டர் அனுப்புங்கள்';
-    btn.style.background = '';
-  }, 3000);
+
+  if (!name || !phone) {
+    alert('பெயர் மற்றும் தொலைபேசி எண்ணை நிரப்பவும் / Please fill in your name and phone number.');
+    return;
+  }
+
+  const lines = [
+    'புதிய ஆர்டர் விசாரணை / New Order Enquiry',
+    'பெயர் (Name): ' + name,
+    'தொலைபேசி (Phone): ' + phone
+  ];
+  if (email) lines.push('மின்னஞ்சல் (Email): ' + email);
+  if (service) lines.push('சேவை வகை (Service): ' + service);
+  if (message) lines.push('செய்தி (Message): ' + message);
+
+  const waText = encodeURIComponent(lines.join('\n'));
+  const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waText;
+
+  // Open WhatsApp immediately (must happen synchronously in the click handler,
+  // otherwise browsers treat it as a blocked popup instead of a user action).
+  window.open(waUrl, '_blank');
+
+  // Purely visual feedback on the button — doesn't delay the WhatsApp redirect above.
+  btn.disabled = true;
+  btn.classList.add('btn-sending');
+  btn.innerHTML = '<span class="btn-spinner"></span> அனுப்புகிறது...';
+
+  setTimeout(() => {
+    btn.classList.remove('btn-sending');
+    btn.classList.add('btn-sent');
+    btn.innerHTML = '✓ WhatsApp-க்கு அனுப்பப்பட்டது!';
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.classList.remove('btn-sent');
+      btn.textContent = 'ஆர்டர் அனுப்புங்கள்';
+    }, 3200);
+  }, 500);
 }
