@@ -1,887 +1,512 @@
-:root {
-  --gold: #C9A84C;
-  --gold-light: #E8C96A;
-  --gold-dark: #8B6914;
-  --gold-pale: #F5E6B8;
-  --black: #0A0A0A;
-  --black-mid: #111111;
-  --black-soft: #1A1A1A;
-  --gray-dark: #2A2A2A;
-  --gray-mid: #444444;
-  --gray-light: #888888;
-  --white: #FFFFFF;
-  --white-soft: #F8F4ED;
-  --cream: #FAF6EF;
-  --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Cormorant Garamond', Georgia, serif;
-  --font-tamil: 'Noto Sans Tamil', sans-serif;
-  --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prabhu CNC Laser Machine Cutting – Jewelry Design Cutting</title>
+<meta name="description" content="தங்க செயின், மோதிரம், வளையல் டிசைன்களுக்கு நவீன CNC மற்றும் LASER மெஷின் கட்டிங் சேவை – Prabhu CNC Laser Machine Cutting">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+Tamil:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-html { scroll-behavior: smooth; }
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <img src="images/brand/logo.png" alt="Prabhu CNC Laser Machine Cutting logo" class="nav-logo">
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">PRABHU CNC LASER MACHINE CUTTING</span>
+      <span class="nav-brand-sub">CNC & Laser Jewelry Cutting</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">எங்களை பற்றி</a></li>
+    <li><a href="#services">சேவைகள்</a></li>
+    <li><a href="#gallery">வடிவங்கள்</a></li>
+    <li><a href="#process">செயல்முறை</a></li>
+    <li><a href="#contact">தொடர்பு</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta desktop-only">தொடர்பு கொள்ளுங்கள்</a>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-smoke" aria-hidden="true">
+    <span class="smoke-wisp w1"></span>
+    <span class="smoke-wisp w2"></span>
+    <span class="smoke-wisp w3"></span>
+    <span class="smoke-wisp w4"></span>
+    <span class="smoke-wisp w5"></span>
+  </div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-particles" id="particles"></div>
 
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+  <div class="hero-content">
+    <div class="hero-badge reveal">CNC &amp; LASER CUTTING SPECIALISTS</div>
 
-/* ─── GOLD DIVIDER ─── */
-.gold-line {
-  display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0;
-}
-.gold-line::before, .gold-line::after {
-  content: ''; flex: 1; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.gold-line span {
-  color: var(--gold); font-size: 1.2rem; letter-spacing: 0.3em;
-}
+    <h1 class="hero-title reveal reveal-delay-1">
+      Precision Crafted<br>Gold Jewelry Design
+    </h1>
 
-/* ─── NAV ─── */
-#navbar {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
-  padding: 1.2rem 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: all 0.4s var(--transition);
-}
-#navbar.scrolled {
-  background: rgba(10,10,10,0.96);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(201,168,76,0.2);
-  padding: 0.8rem 5%;
-}
-.nav-brand {
-  display: flex; align-items: center; gap: 0.7rem;
-}
-.nav-brand-text {
-  display: flex; flex-direction: column; line-height: 1;
-}
-.nav-logo {
-  height: 62px; width: auto; display: block;
-  filter: drop-shadow(0 0 6px rgba(201,168,76,0.25));
-  transition: height 0.4s var(--transition);
-}
-#navbar.scrolled .nav-logo { height: 48px; }
-.nav-brand-main {
-  font-family: var(--font-display);
-  font-size: 1.25rem; font-weight: 700;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; letter-spacing: 0.08em;
-}
-.nav-brand-sub {
-  font-family: var(--font-tamil);
-  font-size: 0.6rem; color: var(--gold);
-  letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px;
-}
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-family: var(--font-tamil);
-  font-size: 0.82rem; letter-spacing: 0.05em;
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0;
-  width: 0; height: 1px; background: var(--gold);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-  background: transparent; border: 1px solid var(--gold);
-  color: var(--gold); padding: 0.5rem 1.25rem;
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  letter-spacing: 0.05em; cursor: pointer;
-  transition: all 0.3s; text-decoration: none;
-}
-.nav-cta:hover {
-  background: var(--gold); color: var(--black);
-}
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
+    <p class="hero-tamil reveal reveal-delay-2">
+      தங்க நகை டிசைன்களுக்கு துல்லியமான CNC &amp; LASER மெஷின் கட்டிங் சேவை.<br>
+      செயின், மோதிரம், வளையல் மற்றும் அனைத்து வகை தங்க நகை டிசைன்களும் மிக நேர்த்தியாக செய்து தரப்படும்.
+    </p>
 
-/* ─── HERO ─── */
-#hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  position: relative; overflow: hidden;
-  padding: 8rem 5% 4rem;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-color: #050505;
-  background-image: 
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,168,76,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(139,105,20,0.08) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(5,5,5,0.82) 0%, rgba(5,5,5,0.50) 45%, rgba(5,5,5,0.88) 100%),
-    url('images/hero/hero-bg.png');
-  background-repeat: no-repeat;
-  background-position: center, center, center, center center;
-  background-size: auto, auto, auto, contain;
-  opacity: 0;
-  transform: scale(1);
-  animation:
-    hero-bg-fade-in 1.8s ease forwards,
-    hero-bg-kenburns 16s ease-in-out 1.8s infinite alternate;
-}
-@keyframes hero-bg-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes hero-bg-kenburns {
-  0%   { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.07) translate(-1%, -1%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg { animation: hero-bg-fade-in 0.6s ease forwards; }
-}
+    <div class="hero-buttons reveal reveal-delay-3">
+      <a href="#contact" class="btn-primary">தொடர்பு கொள்ளுங்கள்</a>
+      <a href="#gallery" class="btn-outline">வடிவங்கள் காண்க</a>
+    </div>
 
-/* ─── HERO SMOKE EFFECT ─── */
-.hero-smoke {
-  position: absolute; inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-.smoke-wisp {
-  position: absolute;
-  bottom: 30%;
-  width: 160px; height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(230,220,200,0.22) 0%, rgba(230,220,200,0.10) 40%, rgba(230,220,200,0) 72%);
-  filter: blur(14px);
-  opacity: 0;
-  mix-blend-mode: screen;
-  animation: smoke-rise 9s ease-in infinite;
-}
-.w1 { left: 46%; width: 140px; height: 200px; animation-duration: 8s;  animation-delay: 0s; }
-.w2 { left: 52%; width: 110px; height: 170px; animation-duration: 10s; animation-delay: 1.6s; }
-.w3 { left: 41%; width: 90px;  height: 150px; animation-duration: 11s; animation-delay: 3.2s; }
-.w4 { left: 57%; width: 130px; height: 190px; animation-duration: 9.5s; animation-delay: 4.8s; }
-.w5 { left: 49%; width: 100px; height: 160px; animation-duration: 12s; animation-delay: 6.4s; }
+    <div class="hero-stats reveal reveal-delay-4">
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">வடிவங்கள்</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">ஆண்டு அனுபவம்</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">1000+</div>
+        <div class="hero-stat-label">திருப்தியான வாடிக்கையாளர்கள்</div>
+      </div>
+    </div>
+  </div>
 
-@keyframes smoke-rise {
-  0%   { transform: translate(0, 0) scale(0.6) rotate(0deg);    opacity: 0; }
-  12%  { opacity: 0.5; }
-  50%  { transform: translate(-3%, -55%) scale(1.15) rotate(6deg); opacity: 0.32; }
-  100% { transform: translate(6%, -125%) scale(1.9) rotate(-4deg); opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-smoke { display: none; }
-}
-@media (max-width: 768px) {
-  .smoke-wisp { width: 90px !important; height: 130px !important; }
-}
-.hero-grid-overlay {
-  position: absolute; inset: 0;
-  background-image: 
-    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-particles {
-  position: absolute; inset: 0; pointer-events: none;
-}
-.particle {
-  position: absolute;
-  width: 2px; height: 2px;
-  border-radius: 50%;
-  background: var(--gold);
-  animation: float-particle linear infinite;
-  opacity: 0;
-}
-@keyframes float-particle {
-  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.3; }
-  100% { transform: translateY(-20px) translateX(40px); opacity: 0; }
-}
-.hero-content { position: relative; z-index: 2; max-width: 750px; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  border: 1px solid rgba(201,168,76,0.3);
-  padding: 0.4rem 1rem;
-  margin-bottom: 2rem;
-  font-family: var(--font-tamil);
-  font-size: 0.72rem; letter-spacing: 0.12em;
-  color: var(--gold); text-transform: uppercase;
-}
-.hero-badge::before {
-  content: '◆'; font-size: 0.5rem; color: var(--gold);
-}
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.15;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--white) 0%, var(--gold-pale) 40%, var(--gold) 70%, var(--gold-dark) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-tamil {
-  font-family: var(--font-tamil);
-  font-size: clamp(1rem, 2.2vw, 1.5rem);
-  font-weight: 400; color: rgba(255,255,255,0.85);
-  margin-bottom: 2.5rem; line-height: 1.8;
-}
-.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-primary {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
-  color: var(--black); padding: 0.9rem 2.2rem;
-  font-family: var(--font-tamil); font-size: 0.85rem;
-  font-weight: 600; letter-spacing: 0.06em;
-  text-decoration: none; cursor: pointer; border: none;
-  transition: all 0.3s var(--transition);
-  position: relative; overflow: hidden;
-}
-.btn-primary::before {
-  content: ''; position: absolute; top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
-}
-.btn-primary:hover::before { left: 100%; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
-.btn-outline {
-  display: inline-block;
-  border: 1px solid var(--gold); color: var(--gold);
-  padding: 0.9rem 2.2rem;
-  font-family: var(--font-tamil); font-size: 0.85rem;
-  letter-spacing: 0.06em; text-decoration: none; cursor: pointer;
-  background: transparent;
-  transition: all 0.3s var(--transition);
-}
-.btn-outline:hover {
-  background: rgba(201,168,76,0.1);
-  transform: translateY(-2px);
-}
-.hero-ornament {
-  position: absolute; right: 5%; top: 50%;
-  transform: translateY(-50%);
-  width: clamp(200px, 35vw, 500px);
-  height: clamp(200px, 35vw, 500px);
-  opacity: 0.12;
-}
-.hero-stats {
-  display: flex; gap: 3rem; margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(201,168,76,0.15);
-}
-.hero-stat-num {
-  font-family: var(--font-display);
-  font-size: 2rem; font-weight: 700;
-  color: var(--gold);
-}
-.hero-stat-label {
-  font-family: var(--font-tamil);
-  font-size: 0.72rem; color: rgba(255,255,255,0.5);
-  margin-top: 0.2rem; letter-spacing: 0.05em;
-}
+  <!-- Decorative SVG -->
+  <svg class="hero-ornament" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="160" stroke="#C9A84C" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="130" stroke="#C9A84C" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="100" stroke="#C9A84C" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="60" stroke="#C9A84C" stroke-width="1"/>
+    <polygon points="200,60 215,145 295,145 230,195 250,280 200,235 150,280 170,195 105,145 185,145" stroke="#C9A84C" stroke-width="0.5" fill="rgba(201,168,76,0.03)"/>
+    <polygon points="200,100 210,160 265,160 220,195 235,255 200,225 165,255 180,195 135,160 190,160" stroke="#C9A84C" stroke-width="0.5" fill="rgba(201,168,76,0.05)"/>
+    <circle cx="200" cy="200" r="15" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1"/>
+    <line x1="40" y1="200" x2="360" y2="200" stroke="#C9A84C" stroke-width="0.3"/>
+    <line x1="200" y1="40" x2="200" y2="360" stroke="#C9A84C" stroke-width="0.3"/>
+    <line x1="87" y1="87" x2="313" y2="313" stroke="#C9A84C" stroke-width="0.3"/>
+    <line x1="313" y1="87" x2="87" y2="313" stroke="#C9A84C" stroke-width="0.3"/>
+    <circle cx="200" cy="40" r="4" fill="#C9A84C" opacity="0.5"/>
+    <circle cx="360" cy="200" r="4" fill="#C9A84C" opacity="0.5"/>
+    <circle cx="200" cy="360" r="4" fill="#C9A84C" opacity="0.5"/>
+    <circle cx="40" cy="200" r="4" fill="#C9A84C" opacity="0.5"/>
+  </svg>
+</section>
 
-/* ─── SECTIONS ─── */
-section { padding: 6rem 5%; }
-.section-label {
-  font-family: var(--font-tamil);
-  font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.75rem;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--white), var(--gold-pale));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; line-height: 1.2;
-}
-.section-title-ta {
-  font-family: var(--font-tamil);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-weight: 500;
-  background: linear-gradient(135deg, var(--white), var(--gold-pale));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; line-height: 1.3;
-}
+<!-- ABOUT -->
+<section id="about">
+  <div class="ornament-top">✦ ✦ ✦</div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-label">எங்களை பற்றி | ABOUT US</div>
+      <h2 class="section-title-ta" style="margin-bottom:1.5rem;">உயர்தர நகை வடிவமைப்பில்<br>நாங்கள் முன்னோடி</h2>
+      <p>PRABHU CNC LASER MACHINE CUTTING நிறுவனம் தங்க செயின், மோதிரம், வளையல் மற்றும் பல்வேறு நகை டிசைன்களை நவீன CNC மற்றும் LASER மெஷின் தொழில்நுட்பத்தின் மூலம் மிகத் துல்லியமாக வடிவமைத்து வழங்குகிறது.</p>
+      <p>தரம், நேர்த்தி மற்றும் காலக்கெடுவை மதித்து வாடிக்கையாளர்களின் ஆர்டர்களை சிறப்பாக நிறைவேற்றுகிறோம். உங்கள் கனவு நகையை நிஜமாக்க நாங்கள் இங்கே இருக்கிறோம்.</p>
+      <div class="about-signature">Prabhu CNC Laser Machine Cutting</div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-frame">
+        <div class="about-inner">
+          <div class="about-feature">
+            <div class="about-icon">⚙</div>
+            <div>
+              <div class="about-feature-title">நவீன CNC தொழில்நுட்பம்</div>
+              <div class="about-feature-desc">அதிநவீன CNC இயந்திரங்கள் மூலம் மிகத் துல்லியமான வெட்டு வடிவமைப்பு</div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-icon">⚡</div>
+            <div>
+              <div class="about-feature-title">LASER கட்டிங் சேவை</div>
+              <div class="about-feature-desc">லேசர் தொழில்நுட்பத்தின் மூலம் நேர்த்தியான வடிவங்கள் உருவாக்கம்</div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-icon">✦</div>
+            <div>
+              <div class="about-feature-title">தனிப்பயன் வடிவமைப்பு</div>
+              <div class="about-feature-desc">உங்கள் ஆர்டரின் படி தனித்துவமான நகை வடிவங்கள் தயாரிக்கப்படும்</div>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-icon">🏆</div>
+            <div>
+              <div class="about-feature-title">சரியான நேரத்தில் டெலிவரி</div>
+              <div class="about-feature-desc">குறிப்பிட்ட தேதியில் உங்கள் ஆர்டர் தயாராக இருக்கும் என்று உறுதி</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ─── ABOUT ─── */
-#about {
-  background: var(--black-mid);
-  position: relative;
-}
-#about::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center; margin-top: 3rem;
-}
-.about-visual {
-  position: relative;
-}
-.about-frame {
-  border: 1px solid rgba(201,168,76,0.2);
-  padding: 2px;
-  position: relative;
-}
-.about-frame::before, .about-frame::after {
-  content: '◆';
-  position: absolute;
-  color: var(--gold); font-size: 0.5rem;
-}
-.about-frame::before { top: -0.4rem; left: -0.4rem; }
-.about-frame::after { bottom: -0.4rem; right: -0.4rem; }
-.about-inner {
-  background: linear-gradient(135deg, var(--gray-dark), var(--black-soft));
-  padding: 2.5rem;
-  display: flex; flex-direction: column; gap: 1.5rem;
-}
-.about-feature {
-  display: flex; gap: 1rem; align-items: flex-start;
-}
-.about-icon {
-  width: 44px; height: 44px; flex-shrink: 0;
-  border: 1px solid rgba(201,168,76,0.3);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold); font-size: 1.3rem;
-}
-.about-feature-title {
-  font-family: var(--font-tamil); font-size: 0.9rem;
-  font-weight: 600; color: var(--gold-pale); margin-bottom: 0.2rem;
-}
-.about-feature-desc {
-  font-family: var(--font-tamil); font-size: 0.78rem;
-  color: rgba(255,255,255,0.55); line-height: 1.6;
-}
-.about-text p {
-  font-family: var(--font-tamil);
-  font-size: 0.95rem; color: rgba(255,255,255,0.75);
-  line-height: 1.9; margin-bottom: 1.2rem;
-}
-.about-signature {
-  font-family: var(--font-display); font-style: italic;
-  font-size: 1.4rem; color: var(--gold);
-  border-top: 1px solid rgba(201,168,76,0.2);
-  padding-top: 1.2rem; margin-top: 1rem;
-}
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-label">சேவைகள் | SERVICES</div>
+    <h2 class="section-title">Our Premium Services</h2>
+    <div class="gold-line"><span>◆</span></div>
+    <p style="font-family:var(--font-tamil);font-size:0.9rem;color:rgba(255,255,255,0.5);margin-top:0.5rem;">அனைத்து வகையான தங்க நகை வடிவமைப்பு சேவைகளும் இங்கே கிடைக்கும்</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">⛓</div>
+      <div class="service-title">Gold Chain Design Cutting</div>
+      <div class="service-desc">தங்கச் செயின் வடிவமைப்புகளை அதிநுட்பமாக CNC மூலம் வெட்டி தருகிறோம். அனைத்து வகை செயின் டிசைன்களும்.</div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <div class="service-icon">💍</div>
+      <div class="service-title">Ring Design Cutting</div>
+      <div class="service-desc">மோதிர வடிவமைப்புகளில் நவீன வடிவங்களும் பாரம்பரிய வடிவங்களும் துல்லியமாக தயாரிக்கப்படும்.</div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <div class="service-icon">○</div>
+      <div class="service-title">Bangle Design Cutting</div>
+      <div class="service-desc">வளையல் வடிவமைப்புகளில் CNC மற்றும் லேசர் தொழில்நுட்பம் மூலம் நேர்த்தியான வடிவங்கள்.</div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-icon">✦</div>
+      <div class="service-title">Custom Jewelry Pattern</div>
+      <div class="service-desc">உங்கள் சொந்த டிசைன் அல்லது புதிய வடிவமைப்புகளை நாங்கள் நிஜமாக்குவோம். Custom orders வரவேற்கிறோம்.</div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">05</div>
+      <div class="service-icon">⚙</div>
+      <div class="service-title">CNC Precision Cutting</div>
+      <div class="service-desc">Computer Numerical Control தொழில்நுட்பம் மூலம் 0.01mm துல்லியத்தில் வெட்டுதல். தரம் உத்தரவாதம்.</div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">06</div>
+      <div class="service-icon">⚡</div>
+      <div class="service-title">Laser Engraving & Cutting</div>
+      <div class="service-desc">LASER கட்டிங் மூலம் நுட்பமான வடிவங்கள் மற்றும் எழுத்துக்களை நகைகளில் பொறிக்கிறோம்.</div>
+    </div>
+  </div>
+</section>
 
-/* ─── SERVICES ─── */
-#services { background: var(--black); position: relative; }
-.services-header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5px;
-}
-.service-card {
-  background: var(--black-soft);
-  border: 1px solid rgba(201,168,76,0.1);
-  padding: 2.5rem;
-  position: relative; overflow: hidden;
-  transition: all 0.4s var(--transition);
-  cursor: default;
-}
-.service-card::before {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: scaleX(0); transition: transform 0.4s;
-}
-.service-card:hover { background: rgba(201,168,76,0.04); border-color: rgba(201,168,76,0.25); }
-.service-card:hover::before { transform: scaleX(1); }
-.service-num {
-  font-family: var(--font-display); font-size: 3.5rem;
-  font-weight: 700; line-height: 1;
-  color: rgba(201,168,76,0.08);
-  position: absolute; top: 1rem; right: 1.5rem;
-  transition: color 0.4s;
-}
-.service-card:hover .service-num { color: rgba(201,168,76,0.15); }
-.service-icon {
-  width: 56px; height: 56px;
-  border: 1px solid rgba(201,168,76,0.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; margin-bottom: 1.5rem;
-  transition: all 0.3s;
-}
-.service-card:hover .service-icon {
-  background: rgba(201,168,76,0.1);
-  border-color: var(--gold);
-  color: var(--gold);
-}
-.service-title {
-  font-family: var(--font-tamil); font-size: 1rem;
-  font-weight: 600; color: var(--gold-pale);
-  margin-bottom: 0.5rem;
-}
-.service-desc {
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  color: rgba(255,255,255,0.5); line-height: 1.7;
-}
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">வடிவங்கள் | GALLERY</div>
+    <h2 class="section-title">Our Design Portfolio</h2>
+    <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);padding:0.3rem 0.75rem;margin-top:0.75rem;font-family:var(--font-tamil);font-size:0.7rem;color:var(--gold);letter-spacing:0.08em;">
+      ✦ ACTUAL PRODUCT PHOTOS
+    </div>
+    <div class="gold-line"><span>◆</span></div>
+  </div>
 
-/* ─── GALLERY ─── */
-#gallery {
-  background: var(--black-mid);
-  position: relative;
-}
-.gallery-header { text-align: center; margin-bottom: 3rem; }
-.gallery-grid {
-  columns: 4 200px; column-gap: 12px;
-}
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: 12px;
-  position: relative; overflow: hidden;
-  cursor: pointer;
-  border: 1px solid rgba(201,168,76,0.1);
-}
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-.gallery-placeholder {
-  width: 100%;
-  background: linear-gradient(135deg, var(--gray-dark), var(--black-soft));
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.5rem; padding: 2rem 1rem;
-}
-.gallery-item:nth-child(1) .gallery-placeholder { min-height: 200px; }
-.gallery-item:nth-child(2) .gallery-placeholder { min-height: 280px; }
-.gallery-item:nth-child(3) .gallery-placeholder { min-height: 220px; }
-.gallery-item:nth-child(4) .gallery-placeholder { min-height: 260px; }
-.gallery-item:nth-child(5) .gallery-placeholder { min-height: 180px; }
-.gallery-item:nth-child(6) .gallery-placeholder { min-height: 240px; }
-.gallery-item:nth-child(7) .gallery-placeholder { min-height: 200px; }
-.gallery-item:nth-child(8) .gallery-placeholder { min-height: 270px; }
-.gallery-icon-large { font-size: 2.5rem; color: rgba(201,168,76,0.3); }
-.gallery-label {
-  font-family: var(--font-tamil); font-size: 0.72rem;
-  color: rgba(201,168,76,0.5); letter-spacing: 0.1em; text-align: center;
-}
-.gallery-overlay {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.3s;
-}
-.gallery-zoom { font-size: 1.5rem; color: var(--gold); }
-.real-img { cursor: zoom-in; }
-.real-img img { transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
-.real-img:hover img { transform: scale(1.07); }
+  <div class="gallery-tabs reveal">
+    <button class="gallery-tab active" data-category="handmade" onclick="switchGallery('handmade', this)">Hand Made Bangle Design</button>
+    <button class="gallery-tab" data-category="cnc-simple" onclick="switchGallery('cnc-simple', this)">CNC Simple Design</button>
+    <button class="gallery-tab" data-category="cnc-advanced" onclick="switchGallery('cnc-advanced', this)">CNC Advanced Design</button>
+    <button class="gallery-tab" data-category="kada" onclick="switchGallery('kada', this)">Kada Design</button>
+  </div>
+  <div class="gallery-meta reveal"><span id="galleryMetaText">Hand Made Bangle Design — 15 Designs (01–15)</span></div>
 
-/* ─── GALLERY TABS ─── */
-.gallery-tabs {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 0.75rem;
-  margin-bottom: 1.25rem;
-}
-.gallery-tab {
-  background: transparent;
-  border: 1px solid rgba(201,168,76,0.35);
-  color: rgba(255,255,255,0.75);
-  padding: 0.65rem 1.5rem;
-  font-family: var(--font-tamil);
-  font-size: 0.8rem; letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 0.3s var(--transition);
-}
-.gallery-tab:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-.gallery-tab.active {
-  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
-  color: var(--black);
-  border-color: var(--gold);
-  font-weight: 600;
-}
-.gallery-meta {
-  text-align: center;
-  font-family: var(--font-tamil);
-  font-size: 0.75rem;
-  color: rgba(201,168,76,0.6);
-  letter-spacing: 0.08em;
-  margin-bottom: 2rem;
-}
-.gallery-placeholder .gallery-number {
-  font-family: var(--font-display);
-  font-size: 1.4rem; color: rgba(201,168,76,0.35);
-  font-weight: 700; letter-spacing: 0.05em;
-}
-#lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; display:none; align-items:center; justify-content:center; flex-direction:column; gap:1rem; }
-#lightbox.open { display:flex; }
-#lightbox img { max-width:90vw; max-height:80vh; object-fit:contain; border:1px solid rgba(201,168,76,0.3); cursor: zoom-in; transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94); }
-#lightbox img.zoomed { transform: scale(2); cursor: zoom-out; }
-#lightbox-close { position:absolute; top:1.5rem; right:2rem; color:var(--gold); font-size:2rem; cursor:pointer; background:none; border:none; line-height:1; }
-#lightbox-caption { font-family:var(--font-tamil); font-size:0.85rem; color:rgba(255,255,255,0.6); letter-spacing:0.05em; }
-.lightbox-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,168,76,0.3);
-  color: var(--gold);
-  font-size: 1.8rem; line-height: 1;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  transition: all 0.25s var(--transition);
-  z-index: 2;
-}
-.lightbox-nav:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); transform: translateY(-50%) scale(1.08); }
-#lightbox-prev { left: 1.5rem; }
-#lightbox-next { right: 1.5rem; }
-@media (max-width: 640px) {
-  .lightbox-nav { width: 42px; height: 42px; font-size: 1.4rem; }
-  #lightbox-prev { left: 0.5rem; }
-  #lightbox-next { right: 0.5rem; }
-}
+  <div class="gallery-grid reveal" id="galleryGrid"></div>
+</section>
 
-/* ─── WHY CHOOSE US ─── */
-#why {
-  background: linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%);
-  position: relative;
-}
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem; margin-top: 3rem;
-}
-.why-card {
-  display: flex; gap: 1rem; align-items: flex-start;
-  padding: 1.5rem;
-  border-left: 2px solid rgba(201,168,76,0.2);
-  transition: border-color 0.3s;
-}
-.why-card:hover { border-left-color: var(--gold); }
-.why-card-icon {
-  width: 48px; height: 48px; flex-shrink: 0;
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; color: var(--gold);
-  transition: all 0.3s;
-}
-.why-card:hover .why-card-icon { background: rgba(201,168,76,0.15); }
-.why-card-title {
-  font-family: var(--font-tamil); font-size: 0.9rem;
-  font-weight: 600; color: var(--gold-pale); margin-bottom: 0.3rem;
-}
-.why-card-desc {
-  font-family: var(--font-tamil); font-size: 0.78rem;
-  color: rgba(255,255,255,0.5); line-height: 1.6;
-}
 
-/* ─── PROCESS ─── */
-#process { background: var(--black-mid); }
-.process-header { text-align: center; margin-bottom: 4rem; }
-.process-timeline {
-  position: relative; max-width: 900px; margin: 0 auto;
-}
-.process-line {
-  position: absolute; top: 32px; left: calc(50% - 1px);
-  width: 2px; height: calc(100% - 64px);
-  background: linear-gradient(180deg, var(--gold) 0%, rgba(201,168,76,0.1) 100%);
-  display: none;
-}
-.process-steps {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2rem 4rem;
-}
-.process-step {
-  display: flex; flex-direction: column;
-  padding: 2rem;
-  border: 1px solid rgba(201,168,76,0.1);
-  background: var(--black-soft);
-  position: relative; overflow: hidden;
-  transition: all 0.3s;
-}
-.process-step::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 100%; height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-}
-.process-step:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-4px); }
-.step-num {
-  font-family: var(--font-display); font-size: 3rem;
-  font-weight: 700; color: rgba(201,168,76,0.15);
-  line-height: 1; margin-bottom: 1rem;
-}
-.step-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-.step-title {
-  font-family: var(--font-tamil); font-size: 1rem;
-  font-weight: 600; color: var(--gold); margin-bottom: 0.5rem;
-}
-.step-desc {
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  color: rgba(255,255,255,0.5); line-height: 1.6;
-}
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div style="text-align:center;max-width:600px;margin:0 auto 3rem;" class="reveal">
+    <div class="section-label">ஏன் நாங்கள்? | WHY CHOOSE US</div>
+    <h2 class="section-title">What Sets Us Apart</h2>
+    <div class="gold-line"><span>◆</span></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-card-icon">⚙</div>
+      <div>
+        <div class="why-card-title">நவீன CNC தொழில்நுட்பம்</div>
+        <div class="why-card-desc">அதிநவீன CNC இயந்திரங்கள் மூலம் மிக நேர்த்தியான வெட்டு வடிவமைப்பு சேவை வழங்குகிறோம்.</div>
+      </div>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-card-icon">🎯</div>
+      <div>
+        <div class="why-card-title">உயர் துல்லியம் (High Precision)</div>
+        <div class="why-card-desc">0.01mm வரை துல்லியத்துடன் நகை வடிவங்கள் தயாரிக்கப்படும். எந்த பிழையும் இல்லாத வெட்டு.</div>
+      </div>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-card-icon">✦</div>
+      <div>
+        <div class="why-card-title">உயர்தர முடிவு (Premium Finish)</div>
+        <div class="why-card-desc">ஒவ்வொரு வடிவமைப்பிலும் சிறந்த தரம் மற்றும் அழகான தோற்றம் உறுதிப்படுத்தப்படும்.</div>
+      </div>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card-icon">⚡</div>
+      <div>
+        <div class="why-card-title">விரைவான டெலிவரி</div>
+        <div class="why-card-desc">குறிப்பிட்ட நேரத்தில் ஆர்டர் தயாராக இருக்கும். அவசர ஆர்டர்களும் வரவேற்கப்படும்.</div>
+      </div>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-card-icon">🎨</div>
+      <div>
+        <div class="why-card-title">Custom Design Support</div>
+        <div class="why-card-desc">உங்கள் கனவு வடிவமைப்பை நிஜமாக்குகிறோம். புதிய டிசைன்கள் மற்றும் தனிப்பயன் வடிவங்கள்.</div>
+      </div>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-card-icon">🤝</div>
+      <div>
+        <div class="why-card-title">தொழில்முறை சேவை</div>
+        <div class="why-card-desc">அனுபவமிக்க குழுவினர் மூலம் சிறந்த வாடிக்கையாளர் சேவை வழங்கப்படும்.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ─── TESTIMONIALS ─── */
-#testimonials { background: var(--black); }
-.testimonials-header { text-align: center; margin-bottom: 3rem; }
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-.testimonial-card {
-  background: var(--black-soft);
-  border: 1px solid rgba(201,168,76,0.1);
-  padding: 2rem; position: relative;
-  transition: all 0.3s;
-}
-.testimonial-card:hover { border-color: rgba(201,168,76,0.2); }
-.testimonial-card::before {
-  content: '"'; position: absolute; top: 0.5rem; right: 1.5rem;
-  font-family: var(--font-display); font-size: 5rem;
-  color: rgba(201,168,76,0.06); line-height: 1;
-}
-.stars { color: var(--gold); margin-bottom: 1rem; letter-spacing: 2px; font-size: 0.9rem; }
-.testimonial-text {
-  font-family: var(--font-tamil); font-size: 0.88rem;
-  color: rgba(255,255,255,0.7); line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-.testimonial-author {
-  display: flex; align-items: center; gap: 0.75rem;
-  border-top: 1px solid rgba(201,168,76,0.1);
-  padding-top: 1rem;
-}
-.author-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-tamil); font-size: 0.9rem;
-  font-weight: 600; color: var(--black); flex-shrink: 0;
-}
-.author-name {
-  font-family: var(--font-tamil); font-size: 0.85rem;
-  font-weight: 600; color: var(--gold-pale);
-}
-.author-loc {
-  font-family: var(--font-tamil); font-size: 0.72rem;
-  color: rgba(255,255,255,0.4); margin-top: 0.15rem;
-}
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header reveal">
+    <div class="section-label">செயல்முறை | OUR PROCESS</div>
+    <h2 class="section-title">How We Work</h2>
+    <div class="gold-line"><span>◆</span></div>
+    <p style="font-family:var(--font-tamil);font-size:0.9rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;">எங்கள் நான்கு படி செயல்முறை மூலம் சிறந்த முடிவு</p>
+  </div>
+  <div class="process-timeline">
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">📋</div>
+        <div class="step-title">Design Submission</div>
+        <div class="step-desc">உங்கள் வடிவமைப்பு அல்லது யோசனையை எங்களுக்கு அனுப்புங்கள். WhatsApp மூலம் படம் அனுப்பலாம். நாங்கள் மதிப்பாய்வு செய்வோம்.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <div class="step-icon">⚙</div>
+        <div class="step-title">CNC / Laser Processing</div>
+        <div class="step-desc">உங்கள் டிசைன் நவீன CNC மற்றும் Laser இயந்திரங்கள் மூலம் மிகத் துல்லியமாக வெட்டப்படும். ஒவ்வொரு விவரமும் பாதுகாக்கப்படும்.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Quality Inspection</div>
+        <div class="step-desc">தயாரிக்கப்பட்ட வடிவமைப்பு கர்ஜனையாக ஆய்வு செய்யப்படும். தரம் உறுதிப்படுத்தப்பட்ட பிறகே டெலிவரிக்கு தயாராகும்.</div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <div class="step-icon">🚚</div>
+        <div class="step-title">Delivery</div>
+        <div class="step-desc">குறிப்பிட்ட நேரத்தில் உங்கள் ஆர்டர் பாதுகாப்பாக வழங்கப்படும். நேரில் அல்லது கூரியர் மூலம் டெலிவரி செய்யப்படும்.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ─── CONTACT ─── */
-#contact {
-  background: var(--black-mid);
-  position: relative;
-}
-#contact::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; margin-top: 3rem;
-}
-.contact-info-item {
-  display: flex; gap: 1rem; align-items: flex-start;
-  margin-bottom: 1.5rem;
-}
-.contact-info-icon {
-  width: 44px; height: 44px; flex-shrink: 0;
-  border: 1px solid rgba(201,168,76,0.3);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold); font-size: 1.2rem;
-}
-.contact-info-label {
-  font-family: var(--font-tamil); font-size: 0.72rem;
-  color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.2rem;
-}
-.contact-info-value {
-  font-family: var(--font-tamil); font-size: 0.9rem;
-  color: rgba(255,255,255,0.8);
-}
-.contact-info-value a { color: inherit; text-decoration: none; }
-.contact-info-value a:hover { color: var(--gold); }
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-label">வாடிக்கையாளர் கருத்துகள் | TESTIMONIALS</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="gold-line"><span>◆</span></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"மிகவும் நேர்த்தியான வேலை. என் மகளுக்கு திருமணத்திற்காக தயாரித்த செயின் மற்றும் வளையல் வடிவங்கள் அனைவரும் பாராட்டினர். சரியான நேரத்தில் டெலிவரி செய்தார்கள். மிக்க நன்றி!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">சு</div>
+        <div>
+          <div class="author-name">சுப்பிரமணி ஐயர்</div>
+          <div class="author-loc">KARAIKUDI, TAMILNADU</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Custom ring design order கொடுத்தேன். எனது sketch-ஐ அப்படியே செய்தார்கள். CNC cutting மிக துல்லியமாக இருந்தது. விலையும் reasonable. Highly recommended!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">ர</div>
+        <div>
+          <div class="author-name">ரவிகுமார் கோல்டு</div>
+          <div class="author-loc">திருச்சி</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">"Laser engraving service மிக அழகாக உள்ளது. நகையில் பெயர் பொறிப்பு மிக நேர்த்தியாக செய்தார்கள். Professional service. Definitely will order again."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">கா</div>
+        <div>
+          <div class="author-name">காயத்ரி ஜுவல்லர்ஸ்</div>
+          <div class="author-loc">கோவை</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-label {
-  font-family: var(--font-tamil); font-size: 0.72rem;
-  color: rgba(255,255,255,0.5); letter-spacing: 0.08em;
-}
-.form-input, .form-textarea, .form-select {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,168,76,0.2);
-  color: var(--white); padding: 0.75rem 1rem;
-  font-family: var(--font-tamil); font-size: 0.85rem;
-  outline: none; transition: border-color 0.3s;
-  width: 100%; appearance: none;
-}
-.form-input:focus, .form-textarea:focus, .form-select:focus {
-  border-color: var(--gold);
-  background: rgba(201,168,76,0.04);
-}
-.form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
-.form-textarea { resize: vertical; min-height: 120px; }
-.whatsapp-btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: #25D366; color: #fff;
-  padding: 0.85rem 1.75rem;
-  font-family: var(--font-tamil); font-size: 0.85rem;
-  font-weight: 600; text-decoration: none; cursor: pointer;
-  border: none; transition: all 0.3s; margin-top: 0.5rem;
-}
-.whatsapp-btn:hover { background: #1fba59; transform: translateY(-2px); }
-.map-placeholder {
-  background: var(--black-soft);
-  border: 1px solid rgba(201,168,76,0.1);
-  height: 180px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 0.5rem; margin-top: 1.5rem;
-  color: rgba(201,168,76,0.4); font-size: 2rem;
-}
-.map-placeholder span {
-  font-family: var(--font-tamil); font-size: 0.78rem;
-  color: rgba(255,255,255,0.3);
-}
+<!-- CONTACT -->
+<section id="contact">
+  <div style="text-align:center;max-width:600px;margin:0 auto 3rem;" class="reveal">
+    <div class="section-label">தொடர்பு | CONTACT US</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="gold-line"><span>◆</span></div>
+    <p style="font-family:var(--font-tamil);font-size:0.9rem;color:rgba(255,255,255,0.45);margin-top:0.75rem;">உங்கள் ஆர்டர் அல்லது கேள்விகளுக்கு இன்றே தொடர்பு கொள்ளுங்கள்</p>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📞</div>
+        <div>
+          <div class="contact-info-label">PHONE</div>
+          <div class="contact-info-value"><a href="tel:+919965988885">+91 99659 88885</a></div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">💬</div>
+        <div>
+          <div class="contact-info-label">WHATSAPP</div>
+          <div class="contact-info-value">
+            <a href="https://wa.me/919965988885" target="_blank" class="whatsapp-btn">
+              <span>💬</span> WhatsApp-ல் தொடர்பு கொள்ளுங்கள்
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉</div>
+        <div>
+          <div class="contact-info-label">EMAIL</div>
+          <div class="contact-info-value"><a href="mailto:prabhulasermachine@gmail.com">prabhulasermachine@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div>
+          <div class="contact-info-label">ADDRESS</div>
+          <div class="contact-info-value">PRABHU CNC LASER MACHINE CUTTING,<br>KARAIKUDI, TAMILNADU</div>
+        </div>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=10.0671496,78.7664012&z=18&output=embed"
+          width="100%" height="220" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="PRABHU CNC LASER MACHINE CUTTING location">
+        </iframe>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">பெயர் (Name)</label>
+            <input type="text" id="orderName" class="form-input" placeholder="உங்கள் பெயர்">
+          </div>
+          <div class="form-group">
+            <label class="form-label">தொலைபேசி (Phone)</label>
+            <input type="tel" id="orderPhone" class="form-input" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">மின்னஞ்சல் (Email)</label>
+          <input type="email" id="orderEmail" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">சேவை வகை (Service Type)</label>
+          <select id="orderService" class="form-select form-input">
+            <option value="" style="background:#1a1a1a">சேவையை தேர்ந்தெடுக்கவும்</option>
+            <option style="background:#1a1a1a">Gold Chain Design Cutting</option>
+            <option style="background:#1a1a1a">Ring Design Cutting</option>
+            <option style="background:#1a1a1a">Bangle Design Cutting</option>
+            <option style="background:#1a1a1a">Custom Jewelry Pattern</option>
+            <option style="background:#1a1a1a">CNC Precision Cutting</option>
+            <option style="background:#1a1a1a">Laser Engraving & Cutting</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">செய்தி (Message)</label>
+          <textarea id="orderMessage" class="form-textarea" placeholder="உங்கள் ஆர்டர் விவரங்கள் அல்லது கேள்விகளை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="handleSubmit()" style="width:100%;text-align:center;">ஆர்டர் அனுப்புங்கள்</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--black);
-  border-top: 1px solid rgba(201,168,76,0.15);
-  padding: 4rem 5% 2rem;
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 3rem; margin-bottom: 3rem;
-}
-.footer-brand-name {
-  font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 700;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; margin-bottom: 0.5rem;
-}
-.footer-tagline {
-  font-family: var(--font-tamil); font-size: 0.78rem;
-  color: var(--gold); letter-spacing: 0.15em; margin-bottom: 1rem;
-}
-.footer-desc {
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  color: rgba(255,255,255,0.4); line-height: 1.7;
-}
-.footer-col-title {
-  font-family: var(--font-tamil); font-size: 0.72rem;
-  letter-spacing: 0.15em; color: var(--gold);
-  text-transform: uppercase; margin-bottom: 1.2rem;
-}
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links a {
-  font-family: var(--font-tamil); font-size: 0.82rem;
-  color: rgba(255,255,255,0.45); text-decoration: none;
-  transition: color 0.3s;
-}
-.footer-links a:hover { color: var(--gold); }
-.footer-social { display: flex; gap: 0.75rem; margin-top: 1rem; }
-.social-icon {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(201,168,76,0.2);
-  display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.4); text-decoration: none;
-  transition: all 0.3s; font-size: 0.9rem;
-}
-.social-icon:hover {
-  border-color: var(--gold); color: var(--gold);
-  background: rgba(201,168,76,0.08);
-}
-.footer-contact-item {
-  display: flex; gap: 0.6rem; align-items: flex-start;
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  color: rgba(255,255,255,0.45); margin-bottom: 0.75rem; line-height: 1.5;
-}
-.footer-contact-item span:first-child { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-.footer-bottom {
-  border-top: 1px solid rgba(201,168,76,0.1);
-  padding-top: 2rem;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 1rem;
-}
-.footer-copy {
-  font-family: var(--font-tamil); font-size: 0.75rem;
-  color: rgba(255,255,255,0.25);
-}
-.footer-motto {
-  font-family: var(--font-tamil); font-size: 0.8rem;
-  color: var(--gold); letter-spacing: 0.2em;
-}
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">PRABHU CNC LASER MACHINE CUTTING</div>
+      <div class="footer-tagline">தரம் • துல்லியம் • நம்பிக்கை</div>
+      <p class="footer-desc">தங்க நகை வடிவமைப்பில் நவீன CNC மற்றும் LASER தொழில்நுட்பம் மூலம் சிறந்த சேவை வழங்குகிறோம். உங்கள் கனவு நகையை நிஜமாக்குகிறோம்.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+        <a href="#" class="social-icon" aria-label="Instagram">ig</a>
+        <a href="#" class="social-icon" aria-label="YouTube">yt</a>
+        <a href="https://wa.me/919965988885" class="social-icon" aria-label="WhatsApp">wa</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">எங்களை பற்றி</a></li>
+        <li><a href="#services">சேவைகள்</a></li>
+        <li><a href="#gallery">வடிவங்கள்</a></li>
+        <li><a href="#process">செயல்முறை</a></li>
+        <li><a href="#testimonials">கருத்துகள்</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Chain Design</a></li>
+        <li><a href="#services">Ring Design</a></li>
+        <li><a href="#services">Bangle Design</a></li>
+        <li><a href="#services">CNC Cutting</a></li>
+        <li><a href="#services">Laser Engraving</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact Info</div>
+      <div class="footer-contact-item"><span>📞</span><span>+91 99659 88885</span></div>
+      <div class="footer-contact-item"><span>✉</span><span>prabhulasermachine@gmail.com</span></div>
+      <div class="footer-contact-item"><span>📍</span><span>KARAIKUDI, TAMILNADU</span></div>
+      <div class="footer-contact-item"><span>⏰</span><span>திங்கள் – சனி: 9AM – 7PM</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Prabhu CNC Laser Machine Cutting. All Rights Reserved.</div>
+    <div class="footer-motto">தரம் • துல்லியம் • நம்பிக்கை</div>
+  </div>
+</footer>
 
-/* ─── FLOATING WHATSAPP ─── */
-#whatsapp-float {
-  position: fixed; bottom: 2rem; right: 2rem;
-  width: 58px; height: 58px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; z-index: 999;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: all 0.3s; font-size: 1.5rem;
-  animation: pulse-green 2s infinite;
-}
-@keyframes pulse-green {
-  0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 4px 40px rgba(37,211,102,0.7); }
-}
-#whatsapp-float:hover { transform: scale(1.1); background: #1fba59; }
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous image">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next" class="lightbox-nav" aria-label="Next image">›</button>
+  <div id="lightbox-caption"></div>
+</div>
 
-/* ─── SCROLL ANIMATIONS ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919965988885" id="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  💬
+</a>
 
-/* ─── MOBILE NAV ─── */
-@media (max-width: 768px) {
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,0.98); padding: 1.5rem 5%; gap: 1rem; }
-  .nav-links.open { display: flex; }
-  .nav-cta.desktop-only { display: none; }
-  .hamburger { display: flex; }
-  #navbar { flex-wrap: wrap; }
-  
-  .hero-ornament { display: none; }
-  .hero-bg { background-size: auto, auto, auto, contain; }
-  .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .process-steps { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  section { padding: 4rem 4%; }
-  .footer-top { grid-template-columns: 1fr; }
-  .hero-buttons { flex-direction: column; }
-  .nav-logo { height: 44px; }
-}
-
-/* ─── ORNAMENTAL ELEMENTS ─── */
-.ornament-top {
-  text-align: center; margin-bottom: 0.5rem;
-  color: var(--gold); opacity: 0.5; font-size: 1.1rem; letter-spacing: 0.5rem;
-}
+<script src="script.js"></script>
+</body>
+</html>
